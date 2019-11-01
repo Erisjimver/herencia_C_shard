@@ -12,6 +12,19 @@ namespace herencia
             Bebieca.getNombre();
             Israel.getNombre();
             Goku.getNombre();
+
+            Mamiferos[] mamiferos = new Mamiferos[3];
+            mamiferos[0] = Bebieca;
+            mamiferos[1] = Israel;
+            mamiferos[2] = Goku;
+
+            mamiferos[1].getNombre();
+            for (int i = 0; i < 3; i++)
+            {
+                mamiferos[i].pensar();
+            }
+            //Object miAnimal = new Caballo("Bucefalo");
+            //Object miPersona = new Humano("Ernesto");
         }
     }
 
@@ -21,6 +34,11 @@ namespace herencia
         public Mamiferos(String nombre)
         {
             nombreSerVivo = nombre;
+        }
+
+        public virtual void pensar()
+        {
+            Console.WriteLine("Soy capaz de pensar, intinstivo");
         }
 
         public void respirar()
@@ -59,9 +77,9 @@ namespace herencia
         {
 
         }
-        public void pensar()
+        public override void pensar()
         {
-            Console.WriteLine("Soy capaz de pensar");
+            Console.WriteLine("Soy capaz de pensar, Avanzado");
         }
     }
 
@@ -74,6 +92,11 @@ namespace herencia
         public void trepar()
         {
             Console.WriteLine("Soy capaz de trepar");
+        }
+
+        public override void pensar()//pensamiento instintivo
+        {
+            Console.WriteLine("Soy capaz de pensar, intermedio");
         }
     }
 }
