@@ -12,6 +12,9 @@ namespace herencia
             Humano Israel = new Humano("Israel");
             Gorila Goku = new Gorila("Goku");
             Ballena fliper = new Ballena("Fliper");
+            Lagartija lagartito = new Lagartija("Lagartito");
+            lagartito.respirar();
+            lagartito.getNombre();
             Bebieca.getNombre();
             Israel.getNombre();
             Goku.getNombre();
@@ -37,8 +40,32 @@ namespace herencia
             //Object miPersona = new Humano("Ernesto");
         }
     }
+    abstract class Animales
+    {
+        public void respirar()
+        {
+            Console.WriteLine("Soy capaz de respirar");
+        }
 
-    class Mamiferos
+        public abstract void getNombre();
+    }
+
+    class Lagartija : Animales
+    {
+        public Lagartija(String nombre)
+        {
+            nombreSerVivo = nombre;
+        }
+
+        public override void getNombre()
+        {
+            Console.WriteLine("El nombre del reptil es: " + nombreSerVivo);
+        }
+
+        private string nombreSerVivo;
+    }
+
+    class Mamiferos:Animales
     {
 
         public Mamiferos(String nombre)
@@ -51,19 +78,14 @@ namespace herencia
             Console.WriteLine("Soy capaz de pensar, intinstivo");
         }
 
-        public void respirar()
-        {
-            Console.WriteLine("Puedo respirar");
-        }
-
         public void cuidarCrias()
         {
             Console.WriteLine("Puedo cuidar a mis crias");
         }
 
-        public void getNombre()
+        public override void getNombre()
         {
-            Console.WriteLine("El nombre del ser vivo es: "+nombreSerVivo);
+            Console.WriteLine("El nombre del ser vivo es: " + nombreSerVivo);
         }
 
         private string nombreSerVivo;
@@ -86,8 +108,6 @@ namespace herencia
             Console.WriteLine("Soy capaz de pensar, como pez");
         }
     }
-
-
 
     class Caballo:Mamiferos,InterfaceMmiferosTerrestres,InterfaceAnimalesDeportes, InterfaceSalto
     {
@@ -185,4 +205,5 @@ namespace herencia
     {
         int numeroPatas();
     }
+
 }
