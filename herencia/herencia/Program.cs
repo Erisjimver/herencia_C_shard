@@ -205,5 +205,5 @@ namespace herencia
     {
         int numeroPatas();
     }
-
+    //sealed impode que una clase sea una clase padre, es decir impedir la  sub herencia
 }
