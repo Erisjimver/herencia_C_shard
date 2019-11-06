@@ -164,6 +164,13 @@ namespace herencia
         {
             Console.WriteLine("Soy capaz de pensar, Avanzado");
         }
+        /* el metodo pensar para evitarque al heredar el metodo no lo pueda modificar
+        public sealed override void pensa1()
+        {
+            Console.WriteLine("Soy capaz de pensar, Avanzado");
+        }
+        */
+
     }
 
     class Gorila:Mamiferos,InterfaceMmiferosTerrestres
