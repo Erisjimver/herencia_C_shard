@@ -7,6 +7,8 @@ namespace herencia
         static void Main(string[] args)
         {
             Caballo Bebieca = new Caballo("Bebieca");
+            InterfaceMmiferosTerrestres caballo = new Caballo("Bebieca");
+            InterfaceSalto caballo1 = new Caballo("Bebieca");
             Humano Israel = new Humano("Israel");
             Gorila Goku = new Gorila("Goku");
             Ballena fliper = new Ballena("Fliper");
@@ -16,7 +18,8 @@ namespace herencia
             fliper.respirar();
             fliper.nadar();
             Console.WriteLine(Israel.deporte());
-            Bebieca.numeroPatas();
+            Console.WriteLine("Tengo: " + caballo.numeroPatas()+ " Patas");
+            Console.WriteLine("Salgo con: " + caballo1.numeroPatas()+" patas" );
             Bebieca.deporte();
 
             Mamiferos[] mamiferos = new Mamiferos[3];
@@ -29,6 +32,7 @@ namespace herencia
             {
                 mamiferos[i].pensar();
             }
+
             //Object miAnimal = new Caballo("Bucefalo");
             //Object miPersona = new Humano("Ernesto");
         }
@@ -85,7 +89,7 @@ namespace herencia
 
 
 
-    class Caballo:Mamiferos,InterfaceMmiferosTerrestres,InterfaceAnimalesDeportes
+    class Caballo:Mamiferos,InterfaceMmiferosTerrestres,InterfaceAnimalesDeportes, InterfaceSalto
     {
         public Caballo(String nombreCaballo) : base(nombreCaballo)
         {
@@ -102,16 +106,20 @@ namespace herencia
             Console.WriteLine("Soy capaz de galopar");
         }
 
-        public int numeroPatas()
+        int InterfaceMmiferosTerrestres.numeroPatas()
         {
             int numero = 4;
             return numero;
-
         }
 
         public bool olimpico()
         {
             return true;
+        }
+
+        int InterfaceSalto.numeroPatas()
+        {
+            return 2;
         }
     }
 
@@ -171,5 +179,10 @@ namespace herencia
     {
         string deporte();
         Boolean olimpico();
+    }
+
+    interface InterfaceSalto
+    {
+        int numeroPatas();
     }
 }
